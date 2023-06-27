@@ -1,0 +1,36 @@
+version: 0.2
+       
+phases:
+  install:
+    runtime-versions:
+      nodejs: 10
+    commands:
+      - echo install yarn ...
+      - npm install --global yarn
+      - echo install vue ...
+      - npm install --global @vue/cli@4.5.12
+  pre_build:
+    commands:
+      - yarn
+      # - npm install
+  build:
+    commands:
+      - echo "build components"
+      - npm run build:component
+  post_build: # 搞单元测试
+    commands: # 这个地方搞单元测试
+      - echo $PWD
+# reports:  测试报告等后续加单元测试
+#   report-group-name-or-arn:
+#     files:
+#       - location
+#       - location
+#     base-directory: location
+#     discard-paths: no | yes
+#     file-format: report-format
+artifacts:
+  files:
+    - dist/**/*
+  name: base-component-$(date +%Y-%m-%d) 
+  discard-paths: no
+  s3-prefix: 2020-11-11/cicd/base-component/artifacts/

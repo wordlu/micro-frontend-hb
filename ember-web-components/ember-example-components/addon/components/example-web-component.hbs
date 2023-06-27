@@ -1,0 +1,6 @@
+{{#if @eventContext}}
+    <button type="button" {{on "click" this.handleClick}}>
+        {{@componenttitle}}
+    </button>
+{{/if}}
+{{yield}}

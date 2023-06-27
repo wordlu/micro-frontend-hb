@@ -1,0 +1,16 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+	ignorecase = true
+	precomposeunicode = true
+[remote "origin"]
+	url = https://git-codecommit.cn-northwest-1.amazonaws.com.cn/v1/repos/micro-frontend
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
+[branch "feat-recover-wodelu-0211"]
+	remote = origin
+	merge = refs/heads/feat-recover-wodelu-0211

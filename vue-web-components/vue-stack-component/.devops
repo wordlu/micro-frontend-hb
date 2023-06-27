@@ -1,0 +1,38 @@
+{
+    "devops": {
+        "prod": {
+            "prefix": "dist",
+            "files": [
+				"*.min.js"
+			],
+            "destinations": [
+				{
+					"bucket": "components.hubadata.com",
+					"key": "prod/deploy/"
+				}
+			],
+            "resolve":  "",
+			"modifications": []
+		},
+		"dev": {
+            "prefix": "dist",
+            "files": [
+				"*.js"
+			],
+            "destinations": [
+				{
+					"bucket": "components.hubadata.com",
+					"key": "dev/deploy/"
+				}
+			],
+            "resolve":  "",
+			"modifications": []
+		}
+	},
+    "prod": {
+
+    },
+    "dev": {
+
+    }
+}

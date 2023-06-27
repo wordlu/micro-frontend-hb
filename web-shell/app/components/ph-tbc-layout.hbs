@@ -1,0 +1,21 @@
+<div>
+    {{#let (element this.navComponent) as |Nav|}}
+        {{#if this.inverse}}
+            <Nav inversebase
+                {{on "linkToPage" linkToPage}}
+                {{on "logout" logout}}
+                 is-login={{isLogin}}
+            />
+        {{else}}
+            <Nav
+                {{on "linkToPage" linkToPage}}
+                {{on "logout" logout}}
+                is-login={{isLogin}}
+            />
+        {{/if}}
+    {{/let}}
+    {{yield}}
+    {{#let (element this.footComponent) as |Footer|}}
+        <Footer {{on "linkToPage" linkToPage}} />
+    {{/let}}
+</div>

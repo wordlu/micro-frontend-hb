@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>北京法伯</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {{content-for "head"}}
+
+	<link rel="shortcut icon" href="https://s3.cn-northwest-1.amazonaws.com.cn/general.hubadata.com/pharbers.ico">
+    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/vendor.css">
+    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/web-shell.css">
+    <!-- Load Element UI CSS -->
+    <link rel="stylesheet" href="https://components.hubadata.com/element-ui/element-ui.css">
+	<link href="https://components.hubadata.com/font-awesome/font-awesome.min.css" rel="stylesheet">
+	<!--Load Vue-->
+    <script src="https://components.hubadata.com/vue.js"></script>
+    <!--Load the web component polyfill-->
+    <script src="https://components.hubadata.com/webcomponents/webcomponents-loader.js"></script>
+	<!-- load AWS -->
+	<script src="https://components.hubadata.com/aws-sdk-2.702.0.min.js"></script>
+
+    {{content-for "head-footer"}}
+  </head>
+  <body>
+    {{content-for "body"}}
+	<div id="loadingio-spinner-double-ring-ho1zizxmctu">
+        <div class="ldio-400lpppmiue">
+            <div></div><div></div>
+            <div><div></div></div>
+            <div><div></div></div>
+        </div>
+    </div>
+    <script src="{{rootURL}}assets/vendor.js"></script>
+    <script src="{{rootURL}}assets/web-shell.js"></script>
+
+    {{content-for "body-footer"}}
+
+  </body>
+</html>

@@ -1,0 +1,45 @@
+version: 0.2
+       
+phases:
+  install: # 利用efs 挂载了一个nodejs 的环境, 感觉挂载的方式必要性不高，效率不太慢
+    runtime-versions:
+      nodejs: 10
+    commands:
+      - echo install yarn ...
+      - npm install --global yarn
+      - echo install ember ...
+      - npm install --global ember-cli@~3.25
+      - echo install vue ...
+      - npm install --global 
+  pre_build:
+    commands:
+      - echo current pwd
+      - echo $PWD  
+      - echo link components
+      - cd /environment/node/components/basic-components
+      - yarn link
+      - cd $OLDPWD
+      - echo install dependencies
+      # - cp -r /environment/node/code/node_modules ./node_modules # 优先使用cp，在efs中也能快一丢丢
+      - yarn link "basic-components"
+      - yarn
+  build:
+    commands:
+      - ember b --prod
+  post_build: # 搞单元测试
+    commands: # 这个地方搞单元测试
+      - echo $PWD
+# reports:  测试报告等后续加单元测试
+#   report-group-name-or-arn:
+#     files:
+#       - location
+#       - location
+#     base-directory: location
+#     discard-paths: no | yes
+#     file-format: report-format
+artifacts:
+  files:
+    - dist/**/*
+  name: offweb-$(date +%Y-%m-%d) 
+  discard-paths: no
+  s3-prefix: 2020-11-11/cicd/offweb/artifacts/

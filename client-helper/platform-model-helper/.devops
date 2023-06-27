@@ -1,0 +1,38 @@
+{
+    "devops": {
+        "prod": {
+            "prefix": "dist",
+            "files": [
+                "*.js"
+            ],
+            "destinations": [
+				{
+					"bucket": "components.hubadata.com",
+					"key": "prod/general/"
+				}
+			],
+            "resolve":  "",
+			"modifications": []
+		},
+		"dev": {
+            "prefix": "dist",
+            "files": [
+                "*.js"
+            ],
+            "destinations": [
+				{
+					"bucket": "components.hubadata.com",
+					"key": "dev/general/"
+				}
+			],
+            "resolve":  "",
+			"modifications": []
+		}
+	},
+    "prod": {
+
+    },
+    "dev": {
+
+    }
+}

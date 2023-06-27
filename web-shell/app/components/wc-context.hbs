@@ -1,0 +1,8 @@
+{{#let (element @name) as |E|}}
+    <E
+		allData={{@allData}}
+        {{did-insert this.registerListener}}
+        {{will-destroy this.unregisterListener}}>
+    </E>
+{{/let}}
+{{yield}}

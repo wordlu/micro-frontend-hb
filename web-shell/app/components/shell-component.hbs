@@ -1,0 +1,8 @@
+{{#if (eq this.engine "web-component")}}
+    <Wc-context @name={{this.name}} @allData={{@model}}/>
+{{else if (eq this.engine "iframe")}}
+    <Iframe-context @allData={{@model}}></Iframe-context>
+{{else}}
+    <h2>not implement shell component</h2>
+{{/if}}
+{{yield}}

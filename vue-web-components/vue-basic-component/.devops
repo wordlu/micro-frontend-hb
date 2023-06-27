@@ -1,0 +1,44 @@
+{
+    "devops": {
+        "prod": {
+            "prefix": "dist",
+            "files": [
+				"*.min.js"
+			],
+            "destinations": [
+				{
+					"bucket": "components.hubadata.com",
+					"key": "prod/offweb/"
+				}
+			],
+			"resolve": "",
+            "modifications": [{
+                "source": "pharbers.min.js",
+                "target": "phbc.min.js"
+            }]
+		},
+		"dev": {
+            "prefix": "dist",
+            "files": [
+				"*.js"
+			],
+            "destinations": [
+				{
+					"bucket": "components.hubadata.com",
+					"key": "dev/offweb/"
+				}
+			],
+			"resolve": "",
+            "modifications": [{
+                "source": "pharbers.js",
+                "target": "phbc.js"
+            }]
+		}
+	},
+    "prod": {
+
+    },
+    "dev": {
+
+    }
+}

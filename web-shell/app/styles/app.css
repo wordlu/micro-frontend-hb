@@ -1,0 +1,168 @@
+@font-face {
+	font-family: Anton-Regular;
+	src: url('https://components.hubadata.com/font/Anton-Regular-new.ttf')
+}
+@font-face {
+	font-family: element-icons;
+	src: url(https://components.hubadata.com/element-ui/element-icons.woff) format("woff"), url(https://components.hubadata.com/element-ui/element-icons.ttf) format("truetype");
+	font-weight: 400;
+	font-display: "auto";
+	font-style: normal
+}
+
+.vue-tooltip-theme {
+	background-color: #fff;
+	border: 1px solid #ccc;
+	padding: 4px;
+	font-size: 14px;
+	border-radius: 4px;
+}
+
+body {
+	background: #fff;	
+	font-weight: normal;
+}
+  
+* {
+	margin: 0;
+	padding: 0;
+	font-family: system, -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Segoe UI", Roboto, "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+  
+/* 界面未加载loading */
+#loadingio-spinner-double-ring-ho1zizxmctu {
+	backdrop-filter: blur(1px); /* 毛玻璃特效 */
+	background: rgba(200, 0,0, 0.05);
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	overflow: hidden;
+	position: absolute;
+}
+/* 	使用transform: translateZ(0)加快动画和过渡的速度
+	使用scale进行缩放
+*/
+.ldio-400lpppmiue {
+	position: absolute;
+	transform: translateZ(0) scale(0.8);
+}
+/*  创建动画
+	1. 0%是动画开始时间
+	2. 100%是动画结束时间
+	3. transform: rorate()是正时针旋转的角度
+*/
+@keyframes ldio-400lpppmiue {
+	0% {
+		transform: rotate(0)
+	}
+  
+	100% {
+	  	transform: rotate(360deg)
+	}
+}
+  
+.ldio-400lpppmiue div {
+	box-sizing: border-box;
+}
+  
+.ldio-400lpppmiue>div {
+	position: absolute;
+	width: 68px;
+	height: 68px;
+	top: -30px;
+	left: -30px;
+	border-radius: 50%;
+	border: 4px solid #000;
+	border-color: #f5c924 transparent #f5c924 transparent;
+	animation: ldio-400lpppmiue 1s linear infinite;
+}
+
+.ldio-400lpppmiue>div:nth-child(2),
+.ldio-400lpppmiue>div:nth-child(4) {
+	width: 58px;
+	height: 58px;
+	top: -26px;
+	left: -26px;
+	animation: ldio-400lpppmiue 1s linear infinite reverse;
+}
+  
+.ldio-400lpppmiue>div:nth-child(2) {
+	border-color: transparent #747789 transparent #747789
+}
+  
+.ldio-400lpppmiue>div:nth-child(3) {
+	border-color: transparent
+}
+  
+.ldio-400lpppmiue>div:nth-child(3) div {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	transform: rotate(45deg);
+}
+  
+.ldio-400lpppmiue>div:nth-child(3) div:before,
+.ldio-400lpppmiue>div:nth-child(3) div:after {
+	content: "";
+	display: block;
+	position: absolute;
+	width: 4px;
+	height: 4px;
+	top: -4px;
+	left: 28px;
+	background: #f5c924;
+	border-radius: 0%;
+	box-shadow: 0 64px 0 0 #f5c924;
+}
+  
+.ldio-400lpppmiue>div:nth-child(3) div:after {
+	left: -4px;
+	top: 28px;
+	box-shadow: 64px 0 0 0 #f5c924;
+}
+  
+.ldio-400lpppmiue>div:nth-child(4) {
+	border-color: transparent;
+}
+  
+.ldio-400lpppmiue>div:nth-child(4) div {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	transform: rotate(45deg);
+}
+  
+.ldio-400lpppmiue>div:nth-child(4) div:before,
+.ldio-400lpppmiue>div:nth-child(4) div:after {
+	content: "";
+	display: block;
+	position: absolute;
+	width: 4px;
+	height: 4px;
+	top: -4px;
+	left: 23px;
+	background: #747789;
+	border-radius: 0%;
+	box-shadow: 0 54px 0 0 #747789;
+  }
+  
+.ldio-400lpppmiue>div:nth-child(4) div:after {
+	left: -4px;
+	top: 23px;
+	box-shadow: 54px 0 0 0 #747789;
+}
+
+/* general iframe */
+.mainIframe {
+    width: 100vw;
+    height: calc(100vh - 50px);
+}
+
+/* offweb iframe */
+/* .mainIframe {
+    width: 100vw;
+	height: calc( 100vh - 80px );
+	margin-top: 80px;
+} */

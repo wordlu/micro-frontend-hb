@@ -1,0 +1,9 @@
+<iframe id="mainIframe" name="mainIframe" class="mainIframe"
+	frameborder="0" scrolling="auto"
+	src={{@allData.data.url}}
+	{{!-- src="http://localhost:8081/index.html#/graph?projectId=ggjpDje0HUC2JW&projectName=demo&flowVersion=developer&environment=development" --}}
+	{{did-insert this.registerListener}}
+	{{will-destroy this.unregisterListener}}>
+</iframe>
+{{yield}}
+

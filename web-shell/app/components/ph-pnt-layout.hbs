@@ -1,0 +1,10 @@
+<div>
+	{{#let (element this.navComponent) as |NavTop|}}
+		<NavTop allData={{@allData}}
+        	{{did-insert this.registerListener}}
+        	{{will-destroy this.unregisterListener}} />
+	{{/let}}
+	<div style="width: 100%;">
+		{{yield}}
+	</div>
+</div>

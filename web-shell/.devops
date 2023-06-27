@@ -1,0 +1,34 @@
+{
+    "devops": {
+        "prod": {
+            "prefix": "dist",
+            "files": [],
+            "destinations": [
+				{
+					"bucket": "replaceBucket",
+					"key": ""
+				}
+			],
+            "resolve":  "",
+			"modifications": []
+		},
+		"dev": {
+            "prefix": "dist",
+            "files": [],
+            "destinations": [
+				{
+					"bucket": "replaceBucket",
+					"key": ""
+				}
+			],
+            "resolve":  "",
+			"modifications": []
+		}
+	},
+    "prod": {
+
+    },
+    "dev": {
+
+    }
+}

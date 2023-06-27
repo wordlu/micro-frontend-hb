@@ -1,0 +1,15 @@
+**/node_modules/
+**/.idea/
+**/dist/
+**/yarn.lock
+**/.DS_Store
+
+
+node_modules/
+.idea/
+venv
+dist/
+yarn-error.log
+yarn.lock
+
+dist.zip
