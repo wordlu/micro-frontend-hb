@@ -30,7 +30,7 @@ export default {
                 gridColor: 'gray',
                 ShowGridX: [1, 2, 3, 4, 5, 6, 7 ,8, 9, 10],
                 ShowGridY: [20, 40, 60, 80, 100, 120, 140 ,160, 180, 200],
-                title: '散点图',
+                title: '图表',
                 pointSize: 5,
                 hoverColor: 'white',
                 animateDuration: 1000
@@ -45,17 +45,17 @@ export default {
             const g_height= h - config.margins.top - config.margins.bottom //g 元素的高
       
             const left = g_height/(data.length/4)
-            var scaleY = d3.scaleLinear()
-                .domain([0, Math.ceil(d3.max(config.ShowGridY, (d) => d)/10)*10])
-                .range([g_height, 0])
+            // var scaleY = d3.scaleLinear()
+            //     .domain([0, Math.ceil(d3.max(config.ShowGridY, (d) => d)/10)*10])
+            //     .range([g_height, 0])
             /* ----------------------------尺度转换------------------------  */
-            const scaleX = d3.scaleBand()
+            const scaleY = d3.scaleBand()
                 .domain(data.map((d) => d.x))
-                .range([0, g_width])
-    
-            const Y = d3.scaleLinear()
-                .domain([0, d3.max(data, (d) => d.y)])
                 .range([g_height, 0])
+    
+            const scaleX = d3.scaleLinear()
+                .domain([0, Math.ceil(d3.max(data.map((d) => d.y))+20)])
+                .range([0, g_width])
             
             console.log(scaleX,scaleY)
             var svg = d3.select(".svg")
@@ -71,8 +71,8 @@ export default {
                 .classed('point', true)
                 .merge(points)
                 .attr('transform', 'translate('+ (config.margins.left+left-12.5) +',' + config.margins.top + ')')
-                .attr('cx', (d) => scaleX(d.x))
-                .attr('cy', (d) => scaleY(d.y))
+                .attr('cx', (d) => scaleX(d.y))
+                .attr('cy', (d) => scaleY(d.x))
                 .attr('r', 0)
                 .attr('fill', (d, i) => {
                     if (colorData[d.x]) {
@@ -106,31 +106,31 @@ export default {
             //     .attr('class', 'yAxis')
             //     .call(d3.axisLeft(scaleY));
             //画线
-            d3.selectAll('.yAxis .tick')
-                .each(function(d, i){
-                    if (config.ShowGridY.indexOf(d) > -1){
-                        d3.select(this).append('line')
-                            .attr('class','grid')
-                            .attr('stroke', config.gridColor)
-                            .attr('x1', 0)
-                            .attr('y1', 0)
-                            .attr('x2', g_width)
-                            .attr('y2', 0);
-                    }
-                });
+            // d3.selectAll('.yAxis .tick')
+            //     .each(function(d, i){
+            //         if (config.ShowGridY.indexOf(d) > -1){
+            //             d3.select(this).append('line')
+            //                 .attr('class','grid')
+            //                 .attr('stroke', config.gridColor)
+            //                 .attr('x1', 0)
+            //                 .attr('y1', 0)
+            //                 .attr('x2', g_width)
+            //                 .attr('y2', 0);
+            //         }
+            //     });
           
-            d3.selectAll('.xAxis .tick')
-                .each(function(d, i){
-                    if (config.ShowGridX.indexOf(d) > -1){
-                        d3.select(this).append('line')
-                            .attr('class','grid')
-                            .attr('stroke', config.gridColor)
-                            .attr('x1', 0)
-                            .attr('y1', 0)
-                            .attr('x2', 0)
-                            .attr('y2', -g_height);
-                    }
-                });
+            // d3.selectAll('.xAxis .tick')
+            //     .each(function(d, i){
+            //         if (config.ShowGridX.indexOf(d) > -1){
+            //             d3.select(this).append('line')
+            //                 .attr('class','grid')
+            //                 .attr('stroke', config.gridColor)
+            //                 .attr('x1', 0)
+            //                 .attr('y1', 0)
+            //                 .attr('x2', 0)
+            //                 .attr('y2', -g_height);
+            //         }
+            //     });
         
             //画柱状图
             let bars = svg.selectAll('.bar')
@@ -139,19 +139,19 @@ export default {
                 .append('rect')
                 .attr('class','bar')
                 .merge(bars)
-                .attr('transform', 'translate('+ (config.margins.left+left-12.5) +','+ config.margins.top +')')
-                .attr('x', (d) => {
-                    return scaleX(d.x) - 5
+                // .attr('transform', 'translate('+ config.margins.top +','+ (config.margins.left+left-12.5) +')')
+                .attr('y', (d) => {
+                    return scaleX(d.y) - 5
                 })
-                .attr('y', (d) => scaleY(d.y))
-                .attr('width', 10)
-                .attr('height', (d) => scaleY(d.h))
+                .attr('x', (d) => scaleY(d.x))
+                .attr('height', 10)
+                .attr('width', (d) => scaleX(d.h))
                 .attr('fill', (d) => {
                     return colorData[d.x]
                 })
                 .transition().duration(config.animateDuration)
-                .attr('height', (d) => g_height - scaleY(d.h))
-                .attr('y', (d) => scaleY(d.y))
+                .attr('height', (d) => g_height - scaleX(d.h))
+                .attr('x', (d) => scaleX(d.y))
         }
     }
 }
